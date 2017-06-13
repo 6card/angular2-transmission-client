@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var helpers = require('./config/helpers');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
@@ -13,8 +14,10 @@ module.exports = {
   },
   output: {
     path: helpers.root('dist'),
-    publicPath: '/angular2/',//publicPath: 'http://localhost:8080/', for dev
+    publicPath: './',//publicPath: 'http://localhost:8080/', for dev
     filename: '[name].js',
+    sourceMapFilename: '[name].js.map',
+    chunkFilename: '[id].chunk.js'
   },
   resolve: {
     extensions: ['.js', '.ts']
@@ -72,9 +75,7 @@ module.exports = {
 
     new ExtractTextPlugin('[name].css'),
 
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
-    }),
+    new CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity}),
 
     new HtmlWebpackPlugin({
       template: 'src/index.html'

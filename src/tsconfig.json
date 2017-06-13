@@ -12,7 +12,7 @@
         "types": ["node"],
         "typeRoots": [
             // add path to @types
-            "node_modules/@types"
+            "../node_modules/@types"
         ]
     }
 }
