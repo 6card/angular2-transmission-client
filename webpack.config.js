@@ -3,7 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var helpers = require('./config/helpers');
-
+const path = require('path');
+const glob = require('glob');
+const PurifyCSSPlugin = require('purifycss-webpack');
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = {
@@ -74,6 +76,12 @@ module.exports = {
     ),
 
     new ExtractTextPlugin('[name].css'),
+
+    new PurifyCSSPlugin({
+      // Give paths to parse for rules. These should be absolute!
+      paths: glob.sync(path.join(__dirname, 'src/app/*.html')),
+      
+    }),
 
     new CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity}),
 

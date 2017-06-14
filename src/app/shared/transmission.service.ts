@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class TransmissionService {
-  apiRoot:string = 'http://25.83.217.24/transmission/rpc/';
+  apiRoot:string = '/transmission/rpc/';
 
   constructor(private http: Http) { 
 
