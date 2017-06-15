@@ -3,10 +3,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var helpers = require('./helpers');
-const path = require('path');
-const glob = require('glob');
-const PurifyCSSPlugin = require('purifycss-webpack');
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
+
+
 
 module.exports = {
   entry: {
@@ -14,13 +12,7 @@ module.exports = {
     'vendor': './src/vendor.ts',
     'app': './src/main.ts'
   },
-  output: {
-    path: helpers.root('dist'),
-    publicPath: './',//publicPath: 'http://localhost:8080/', for dev
-    filename: '[name].js',
-    sourceMapFilename: '[name].js.map',
-    chunkFilename: '[id].chunk.js'
-  },
+  
   resolve: {
     extensions: ['.js', '.ts']
   },
@@ -74,35 +66,13 @@ module.exports = {
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)@angular/,
       helpers.root('src')
-    ),
+    ),    
 
-    // Delete unused JS code
-    new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
-      mangle: {
-        keep_fnames: true
-      }
-    }),
-
-    new ExtractTextPlugin('[name].css'),
-
-    // Delete unused CSS styles
-    new PurifyCSSPlugin({
-      // Give paths to parse for rules. These should be absolute!
-      paths: glob.sync(helpers.root('src', '**', '*.html')),
-      
-    }),
+    new ExtractTextPlugin('[name].css'),    
 
     new CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity}),
 
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    }),
-    /* for production
-    new webpack.DefinePlugin({
-      'process.env': {
-        'ENV': JSON.stringify(ENV)
-      }
-    })
-    */
+    new HtmlWebpackPlugin({template: 'src/index.html'}),
+    
   ]
 }
