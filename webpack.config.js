@@ -73,7 +73,7 @@ module.exports = {
     //Fix for warning
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)@angular/,
-      helpers.root('./src')
+      helpers.root('src')
     ),
 
     // Delete unused JS code
@@ -88,7 +88,7 @@ module.exports = {
     // Delete unused CSS styles
     new PurifyCSSPlugin({
       // Give paths to parse for rules. These should be absolute!
-      paths: glob.sync(path.join(__dirname, 'src/**/*.html')),
+      paths: glob.sync(helpers.root('src', '**', '*.html')),
       
     }),
 
