@@ -69,17 +69,26 @@ module.exports = {
     ]
   },
   plugins: [
+
     //Fix for warning
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)@angular/,
       helpers.root('./src')
     ),
 
+    // Delete unused JS code
+    new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
+      mangle: {
+        keep_fnames: true
+      }
+    }),
+
     new ExtractTextPlugin('[name].css'),
 
+    // Delete unused CSS styles
     new PurifyCSSPlugin({
       // Give paths to parse for rules. These should be absolute!
-      paths: glob.sync(path.join(__dirname, 'src/app/*.html')),
+      paths: glob.sync(path.join(__dirname, 'src/**/*.html')),
       
     }),
 
