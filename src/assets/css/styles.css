@@ -3,6 +3,6 @@
     margin: 0 !important;
 }
 .ui.vertical.menu .item > i.icon {
-    float: none;
-    margin: 0;
+    float: none !important;
+    margin: 0 !important;
 }
