@@ -1,7 +1,14 @@
-<div class="ui grid">
-  <div class="four wide column">
-    <div class="ui segment">
-      <div class="ui secondary vertical filter menu">
+<div class="full">
+  <div class="selector">
+      <div class="ui vertical inverted sticky menu">
+
+        <div class="item">
+          <a class="ui logo icon image" href="">
+            <img src="../assets/img/transmission-logo.png">
+          </a>
+          <a href=""><b>Transmission</b></a>
+        </div>
+
         <a class="item" (click)="setFilter(null)" [ngClass]="getFilterClass(null)">
           All
           <div class="ui teal left pointing label">{{ getAllCount() }}</div>
@@ -20,11 +27,10 @@
         </a>
         
       </div>
-    </div>
   </div>
 
-  <div class="twelve wide stretched column">
-    <div class="ui segment">
+  <div class="torrents">
+    <div class="ui main container">
       <button class="ui green button" (click)="startTorrents()" [disabled]="!selectedTorrents.length">
         <i class="play icon"></i>
         Start

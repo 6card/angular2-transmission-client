@@ -14,8 +14,6 @@ module.exports = webpackMerge(commonConfig,{
         chunkFilename: '[id].chunk.js'
     },
 
-    
-
     devServer: {
         historyApiFallback: true,
         stats: 'minimal'

@@ -1,8 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 .no-margin{
-    margin: 0 !important;
-}
-.ui.vertical.menu .item > i.icon {
-    float: none;
     margin: 0;
+}
+
+.full {
+    display: flex;
+    flex-direction: row;
+}
+
+.selector{
+    flex: 0 0 auto;
+    background-color: #1b1c1d;
+}
+.selector .ui.vertical.menu{
+    width: 20rem;
+}
+
+.selector .ui.vertical.menu .item > i.icon {
+    float: left;
+    margin: 0 .5em 0 0;
+}
+.selector .ui.vertical.menu .logo.image {
+    width: 35px;
+    margin-right: 1em;
+}
+
+.torrents{
+    flex: 1 1 auto;
+    padding-top: 20px;
 }

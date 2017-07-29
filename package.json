@@ -5,6 +5,7 @@
   "main": "./main.js",
   "scripts": {
     "build": "webpack --config config/webpack.dev.js --progress --profile --bail",
+    "build-watch": "webpack --config config/webpack.dev.js --progress --profile --bail --watch --colors",
     "build-prod": "webpack --config config/webpack.prod.js --progress --profile --bail",
     "start": "webpack-dev-server --config config/webpack.dev.js --inline --progress --port 8080",
     "electron": "electron .",

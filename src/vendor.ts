@@ -9,3 +9,8 @@ import '@angular/router';
 import 'rxjs';
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
+
+import './assets/css/semantic.min.css';
+import './assets/css/styles.css';
+
+import './assets/img/transmission-logo.png'
