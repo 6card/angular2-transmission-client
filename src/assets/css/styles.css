@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 .no-margin{
-<<<<<<< HEAD
     margin: 0;
 }
 
@@ -29,11 +28,9 @@
 .torrents{
     flex: 1 1 auto;
     padding-top: 20px;
-=======
     margin: 0 !important;
 }
 .ui.vertical.menu .item > i.icon {
     float: none !important;
     margin: 0 !important;
->>>>>>> bd9b170f001c566988a8c417c7156011ce337ee8
 }
