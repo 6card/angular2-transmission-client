@@ -12,5 +12,3 @@ import 'rxjs';
 
 import './assets/css/semantic.min.css';
 import './assets/css/styles.css';
-
-import './assets/img/transmission-logo.png'
