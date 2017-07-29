@@ -28,9 +28,7 @@
 .torrents{
     flex: 1 1 auto;
     padding-top: 20px;
-    margin: 0 !important;
 }
 .ui.vertical.menu .item > i.icon {
-    float: none !important;
-    margin: 0 !important;
+    float: left;
 }
