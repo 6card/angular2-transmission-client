@@ -62,6 +62,11 @@ module.exports = {
   },
   plugins: [
 
+    new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery"
+    }),
+
     //Fix for warning
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)@angular/,

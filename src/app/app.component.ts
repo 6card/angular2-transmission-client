@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked  } from '@angular/core';
+import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import { TransmissionService } from './shared/transmission.service';
 import { Remote } from './shared/remote';
 import { Torrent } from './shared/torrent';
@@ -11,12 +11,12 @@ import { FilterTorrentsPipe } from './pipes/filter.pipe';
 import {Observable} from 'rxjs/Rx';
 
 @Component({
-  selector: 'app-root',
+  selector: 'body',
   //styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html'  
 })
 
-export class AppComponent implements OnInit, AfterViewChecked  {
+export class AppComponent implements OnInit, AfterViewInit  {
 
     xSessionId: string;
     remote: Remote;
@@ -48,11 +48,22 @@ export class AppComponent implements OnInit, AfterViewChecked  {
         timer.subscribe(() => );
         */
     }
-    ngAfterViewChecked() { 
-        //$('.ui.progress').progress();
+    ngAfterViewInit() { 
+        console.log(jQuery.fn.jquery);
+        // main sidebar
+        jQuery('#toc').sidebar({
+            dimPage          : true,
+            transition       : 'overlay',
+            mobileTransition : 'uncover'
+            })
+        ;
+
+        jQuery('#toc')
+            .sidebar('attach events', '.launch.item')
+        ;
     }
     getAllCount() {
-        return this.torrents.length;
+        return this.torrents.length; 
     }
 
     getDownloadingCount() {

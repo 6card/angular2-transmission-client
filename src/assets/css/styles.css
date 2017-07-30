@@ -33,3 +33,29 @@
 .ui.vertical.menu .item > i.icon {
     float: left;
 }
+
+/* Hide Top Bar */
+@media only screen and (min-width: 1145px) {
+  #example .fixed.main.menu {
+    display: none;
+  }
+}
+
+/* Remove Fixed Sidebar /  Show Top Bar */
+@media only screen and (max-width: 1144px) {
+
+  /* Hide Fixed Sidebar */
+  #example .full.height > .selector {
+    display: none;
+  }
+  #example .torrents > .container {
+    padding-top: 5em;
+  }
+}
+
+#example .container {
+    margin-left: 3em !important;
+    margin-right: 3em !important;
+    width: auto !important;
+    max-width: 960px !important;
+}
