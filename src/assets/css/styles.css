@@ -59,3 +59,11 @@
     width: auto !important;
     max-width: 960px !important;
 }
+.torrent-name {
+    font-weight: bold;
+}
+
+.torrent-error {
+    color: red; 
+    font-size: 0.8em;
+}

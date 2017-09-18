@@ -95,6 +95,15 @@ export class AppComponent implements OnInit, AfterViewInit  {
         console.log(this.sort);
     }
 
+    isErrorClass(error: number) {
+
+        if (error)
+            return 'negative';
+        else
+
+        return false;
+    }
+
     getSortingClass(sort: string) {
         let desc = this.sort.substr(0,1) == '-';
         let sortName = this.sort;
@@ -135,12 +144,16 @@ export class AppComponent implements OnInit, AfterViewInit  {
             this.selectedTorrents = [torrentId];
         }
     }
-    getSelectedTorrentClass(torrent: Torrent) {
+    getTorrentCssClass(torrent: Torrent) {
         let torrentId: number = torrent['id'];
+        let result: any = [];
         if (this.selectedTorrents.filter(x => x === torrentId).length)
-            return ['active'];
-        else
-            return false;
+            result.push('active');
+        if (torrent.error)
+            result.push('negative');
+        if (result.length == 0)
+            result = false;            
+        return result;
     }
 
     getSession() {

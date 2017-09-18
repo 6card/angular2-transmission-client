@@ -150,8 +150,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr (click)="selectTorrent(torrent, $event)" [ngClass]="getSelectedTorrentClass(torrent)" *ngFor="let torrent of torrents | filterTorrent:this.filter | orderBy: [sort]" id="torrent_{{ torrent.id }}">
-              <td>{{ torrent.name }}</td>
+            <tr (click)="selectTorrent(torrent, $event)" [ngClass]="getTorrentCssClass(torrent)" *ngFor="let torrent of torrents | filterTorrent:this.filter | orderBy: [sort]" id="torrent_{{ torrent.id }}">
+              <td>
+                <div class="torrent-name">{{ torrent.name }}</div>
+                <div *ngIf="torrent.error" class="torrent-error">{{ torrent.errorString }}</div>
+              </td>
               <td>{{ torrent.totalSize | fileSize }}</td>
               <td>{{ torrent.getStatus() }}<br>{{ torrent.getSpeed() | fileSpeed }}</td>
               <td>
